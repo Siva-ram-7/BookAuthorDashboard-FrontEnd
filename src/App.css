@@ -1,0 +1,48 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.errMsg {
+  text-align: center;
+  color: rgb(255, 115, 0);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.loader-hold {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(44, 43, 43, 0.77);
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+  border: 10px solid #ddd; /* light gray track */
+  border-top-color: #0d00ff; /* colored arc */
+  border-radius: 50%;
+  z-index: 99;
+  animation: spin 0.9s linear infinite;
+}
+
+.load-msg {
+  font-size: 17px;
+  width: 140px;
+  text-align: center;
+  color: white;
+  position: absolute;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
