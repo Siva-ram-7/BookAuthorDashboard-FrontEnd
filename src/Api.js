@@ -2,6 +2,11 @@
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
 import axios from 'axios'
 
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
 export async function loginReq(data) {
   try {
     const response = await axios.post(
@@ -108,9 +113,8 @@ export async function fetchSingleBook(bookId) {
   }
 }
 
-import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+
 
 export async function extractPdfText(file) {
   const arrayBuffer = await file.arrayBuffer();
