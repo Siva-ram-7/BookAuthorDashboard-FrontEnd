@@ -108,8 +108,8 @@ export async function fetchSingleBook(bookId) {
   }
 }
 
-import * as pdfjsLib from "/node_modules/.vite/deps/pdfjs-dist.js?v=f36ad243";
-import "/node_modules/.vite/deps/pdfjs-dist_build_pdf__worker__mjs.js?v=f36ad243"; 
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 export async function extractPdfText(file) {
@@ -117,6 +117,7 @@ export async function extractPdfText(file) {
   const typedArray = new Uint8Array(arrayBuffer);
   const pdf = await pdfjsLib.getDocument(typedArray).promise;
   let text = "";
+
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
@@ -124,23 +125,17 @@ export async function extractPdfText(file) {
     text += pageText + "\n";
   }
 
-  console.log(text);
-
   return text;
 }
 
-import { ref, uploadBytes, getDownloadURL } from "/node_modules/.vite/deps/firebase_storage.js?v=f36ad243";
+
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 
 export async function uploadFile(file, folder = "") {
   try {
     const storageRef = ref(storage, `${folder}/${file.name}`);
-
-
     const snapshot = await uploadBytes(storageRef, file);
-    console.log("Uploaded successfully:", snapshot.metadata.fullPath);
-
- 
     const url = await getDownloadURL(snapshot.ref);
     return url;
   } catch (error) {
@@ -148,6 +143,7 @@ export async function uploadFile(file, folder = "") {
     return null;
   }
 }
+
 
 export async function generateDescription(text) {
   const res = await fetch( `${apiUrl}/book/analyze`, {

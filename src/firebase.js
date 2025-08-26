@@ -1,5 +1,8 @@
-import { initializeApp } from "/node_modules/.vite/deps/firebase_app.js?v=f36ad243";
-import { getStorage } from "/node_modules/.vite/deps/firebase_storage.js?v=f36ad243";
+import { initializeApp } from "firebase/app";
+
+// Firebase Storage
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
