@@ -224,10 +224,10 @@
 
 .cover-canvas {
   position: fixed;
-  right: 200px;
-  top: 40%;
+  right: 10px;
+  top: 50px;
   width: 200px;
-  height: 280px;
+  height: 200px;
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-bottom: 12px;
