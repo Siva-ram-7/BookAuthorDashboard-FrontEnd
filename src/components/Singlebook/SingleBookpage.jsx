@@ -18,9 +18,12 @@ const SingleBookpage = () => {
       setLoad({ state: true, msg: "Fetching Book" });
       const fetchResult = await fetchSingleBook(bookId);
 
-      setBook(fetchResult?.result);
 
-      console.log(fetchResult);
+       if (fetchResult == "Error fetch book") {
+       return  navigate('/*' ,{replace : true})
+      }
+
+      setBook(fetchResult?.result);
       setLoad({ state: false, msg: "" });
     }
 

@@ -39,6 +39,7 @@ if (response?.message === "login successfully") {
 }
       setErr(response)
 
+        setLoad(false)
 
 
     } catch (error) {

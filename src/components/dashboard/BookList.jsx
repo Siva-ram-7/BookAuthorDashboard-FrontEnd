@@ -52,7 +52,7 @@ const BookList = () => {
             <div className="info">
               <span>Status : {book?.status}</span>
               <h3>{book?.title}</h3>
-              <h4>{book?.price}</h4>
+              <h4>$ {book?.price} </h4>
               <h6>Published On : {formatDateOnly(book?.createdAt)}</h6>
             </div>
           </div>

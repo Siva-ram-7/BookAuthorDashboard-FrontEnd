@@ -282,3 +282,46 @@
   background-color: rgb(57, 132, 245);
   color: white;
 }
+
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  text-align: center;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.notfound-container h1 {
+  font-size: 10rem;
+  margin: 0;
+  color: #ff4c4c;
+}
+
+.notfound-container h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.notfound-container p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.notfound-container a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  text-decoration: none;
+  background-color: #ff4c4c;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.notfound-container a:hover {
+  background-color: #e04343;
+}

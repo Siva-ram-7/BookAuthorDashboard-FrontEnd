@@ -3,6 +3,7 @@ import {BrowserRouter , Routes ,Route, useNavigate, useLocation, replace} from '
 import Login from './components/Login/Login'
 import DashBoard from './components/dashboard/DashBoard'
 import SingleBookpage from './components/Singlebook/SingleBookpage'
+import PageNotFount from './components/PageNotFount'
 const Router = () => {
   const navigation = useNavigate()
   const loaction = useLocation()
@@ -11,7 +12,7 @@ const Router = () => {
     const userId = localStorage.getItem('userId')
     
 
-    if ((!email || !userId ) && loaction.pathname =="/" ) {
+    if ((!email || !userId ) && loaction.pathname !=="/login" ) {
       navigation('/login' , {replace: true})
     }
 
@@ -27,6 +28,7 @@ const Router = () => {
         <Route  path='/login'  element={<Login/>} />
         <Route path='/'  element={<DashBoard/>}/>
         <Route path='/viewBook/:bookId'  element={<SingleBookpage/>}/>
+        <Route path='*'  element={<PageNotFount/>}/>
     </Routes>
     
 
