@@ -3,20 +3,20 @@ import { useEffect } from "react";
 import { fetchBooks } from "../../Api";
 import { useNavigate } from "react-router-dom";
 
-const BookList = () => {
-  const [load, setLoad] = useState(false);
+const BookList = (props) => {
+  const {setLoad} = props
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     const userId = localStorage.getItem("userId");
 
     async function handleBookFetch(params) {
-      setLoad(true);
+      setLoad({state : true , msg : "Loading.."});
       const bookResult = await fetchBooks(userId);
 
       setBooks(bookResult?.result || []);
 
-      setLoad(true);
+      setLoad({state : false , msg : ""});
     }
 
     handleBookFetch();

@@ -57,7 +57,7 @@ const file = new File([blob], uniqueName, { type: "image/png" });
 
       setLoad({ state: true, msg: "coverImage Uploading..." });
       const url = await uploadFile(file);
-      console.log("Cover uploaded at:", url);
+      // console.log("Cover uploaded at:", url);
 
       setLoad({ state: true, msg: "coverImage Storing..." });
 

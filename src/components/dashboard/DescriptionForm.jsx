@@ -8,12 +8,12 @@ const DescritionForm = (props) => {
 
 function handleChange(e) {
     const {name, value} = e.target
-    setForm({
+    setForm({...form,
         [name] : value
     })
 }
 
-console.log(form);
+// console.log(form);
 
 
 

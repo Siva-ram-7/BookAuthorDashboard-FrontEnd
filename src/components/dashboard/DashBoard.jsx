@@ -20,13 +20,13 @@ status : "process",
 text : ""
     })
 
-    console.log(load);
+  
     
   return (
     <div className='dashboard'>
     <Header isOpen={setOpenForm} form={form} setForm={setForm}  />
 
-{(!openForm && !openForm2)&& <BookList/>}
+{(!openForm && !openForm2)&& <BookList setLoad={setLoad}  />}
  {openForm &&    <Form  isOpen={setOpenForm} form={form} setForm={setForm} isOpen2={setOpenForm2} load={load} setLoad={setLoad}/>}
  {openForm2 &&    <DescritionForm  isOpen={setOpenForm} form={form} isOpen2={setOpenForm2} setForm={setForm} load={load} setLoad={setLoad}/>}
 

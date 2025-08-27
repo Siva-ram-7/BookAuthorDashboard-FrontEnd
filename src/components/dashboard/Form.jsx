@@ -9,7 +9,6 @@ import {
 const Form = (props) => {
   const { isOpen, isOpen2, form, setForm, setLoad } = props;
   const [file, setFile] = useState(null);
-  console.log(form);
   const [err, setErr] = useState("");
   const [uploadMsg , setUploadMsg] = useState('Choose File')
 
@@ -43,7 +42,6 @@ const Form = (props) => {
 
     setLoad({ state: true, msg: "Uploading PDF" });
     const url = await uploadFile(file);
-    console.log(url);
 
     setUploadMsg("File Uploaded");
     setForm((prev) => ({
@@ -92,7 +90,6 @@ const Form = (props) => {
       return;
     }
 
-    isOpen(false);
 
     setLoad({ state: true, msg: "Generating AI description..." });
 
@@ -100,7 +97,6 @@ const Form = (props) => {
 
     const description = response?.description || "";
     const keywords = response?.keywords || "";
-    console.log(createRes);
 
     await setForm((prev) => ({
       ...prev,
@@ -109,9 +105,9 @@ const Form = (props) => {
       id: createRes?.response?._id,
     }));
 
-    console.log(form);
-    setLoad(false);
+    setLoad({ state: false, msg: "" });
 
+    isOpen(false);
     isOpen2(true);
   }
   return (

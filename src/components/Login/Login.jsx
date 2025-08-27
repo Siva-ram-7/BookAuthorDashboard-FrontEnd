@@ -13,7 +13,6 @@ const Login = () => {
     password: "",
   });
 
-  console.log(form);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -45,6 +44,7 @@ if (response?.message === "login successfully") {
     } catch (error) {
       console.log(error);
       console.log(error.message);
+      setErr(error.message)
 
         setLoad(false)
 
