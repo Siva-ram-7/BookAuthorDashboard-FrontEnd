@@ -5,12 +5,20 @@ import {
   generateDescription,
   uploadFile,
 } from "../../Api";
+import { useNavigate } from "react-router-dom";
 
 const Form = (props) => {
   const { isOpen, isOpen2, form, setForm, setLoad } = props;
   const [file, setFile] = useState(null);
   const [err, setErr] = useState("");
   const [uploadMsg , setUploadMsg] = useState('Choose File')
+
+  const navigate = useNavigate()
+
+
+  function handleClose(params) {
+    isOpen(false)
+  }
 
  async function handleChange(e) {
   const { name, value, files } = e.target;
@@ -123,7 +131,7 @@ const Form = (props) => {
       />
       <input
         type="text"
-        value={form.genre}
+        value={form?.genre}
         name="genre"
         placeholder="Please Enter a Genre"
         onChange={(e) => handleChange(e)}
@@ -147,6 +155,7 @@ const Form = (props) => {
 
       <div className="errMsg">{err}</div>
       <button onClick={handleCreateReq}>Submit</button>
+      <button onClick={handleClose}>Back</button>
     </div>
   );
 };

@@ -22,9 +22,9 @@ const Header = (props) => {
       <h2>Book Author Dashboard</h2>
 
       <section>
-        <button onClick={()=>isOpen(prev=>!prev)}>Publish</button>
+        <button className='p' onClick={()=>isOpen(prev=>!prev)}>Publish</button>
 
-      <button onClick={logout}>Logout</button>
+      <button className='l' onClick={logout}>Logout</button>
       </section>
     </div>
   )

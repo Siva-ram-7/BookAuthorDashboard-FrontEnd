@@ -20,7 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(44, 43, 43, 0.77);
+  background-color: rgba(23, 23, 23, 0.77);
 }
 
 .loader {
