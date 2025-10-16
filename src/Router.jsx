@@ -20,6 +20,9 @@ const Router = () => {
       navigation('/' ,{replace : true})
     }
 
+    else{
+      return;
+    }
 
   }, [navigation , loaction])
   
